@@ -28,6 +28,6 @@ Route::group(['middleware'=>'cors', 'prefix' => 'v1'], function(){
     Route::post('login', [RegisterController::class, 'login']); 
 });
 
-Route::middleware('auth:api')->group( function () {
+Route::group(['middleware'=>'auth:api', 'prefix' => 'v1'], function () {
     Route::resource('teams', TeamController::class);
 });
