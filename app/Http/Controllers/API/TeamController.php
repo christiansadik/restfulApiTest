@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Team;
 use Validator;
-use App\Http\Resources\Team as TeamResource;
+use App\Http\Resources\TeamResource;
    
 class TeamController extends BaseController
 {
