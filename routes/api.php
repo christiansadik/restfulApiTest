@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +23,11 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::group(['middleware'=>'cors', 'prefix' => 'v1'], function(){
     Route::resource('users', UserController::class);
+
+    Route::post('register', [RegisterController::class, 'register']);
+    Route::post('login', [RegisterController::class, 'login']); 
+});
+
+Route::middleware('auth:api')->group( function () {
+    Route::resource('teams', TeamController::class);
 });
