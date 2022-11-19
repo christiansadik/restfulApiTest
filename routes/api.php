@@ -29,5 +29,16 @@ Route::group(['middleware'=>'cors', 'prefix' => 'v1'], function(){
 });
 
 Route::group(['middleware'=>'auth:api', 'prefix' => 'v1'], function () {
+
+    /** WITH RESOURCE **/
     Route::resource('teams', TeamController::class);
+
+    /** WITH GROUP **/
+    // Route::controller(TeamController::class)->group(function(){
+    //     Route::get('/teams', 'index');
+    // });
+
+    /** WITH SINGLE ROUTE **/
+    // Roue::get('/teams', [TeamController::class, 'index'])
+    
 });
